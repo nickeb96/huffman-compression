@@ -1,0 +1,29 @@
+Microsoft announced Monday that it will buy GitHub, the popular coding platform
+where developers share and collaborate on projects, for $7.5 billion worth of
+Microsoft stocks.
+
+The deal will strengthen the company's relationship with developers and allow
+its tools to reach a broader audience within the world of open-source software,
+experts say.  More than 28 million developers around the world use GitHub,
+Microsoft said, acknowledging the crucial role that developers have played in
+revolutionizing the modern economy.
+
+"Today, every company is becoming a software company and developers are at the
+center of digital transformation", Microsoft said in a news release.
+
+The Redmond, Washington company, which said it is the most active organization
+on GitHub, also plans to accelerate the use of the platform by businesses,
+relying on its sales team, existing corporate partnerships and cloud computing
+infrastructure.
+
+GitHub will continue to remain in an open platform that is independently
+operated, Microsoft said.  The tech giant's vice president of developer
+services, Nat Friedman, will become the new head of GitHub.  The deal is
+expected to close later this year if it passes regulatory review.
+
+The pending acquisition arrives at a time of explosive growth for the cloud
+industry.  Cloud services will account for a staggering $186 billion this year.
+Up more than 21% from last year according to estimates by Gartner, an IT
+research firm.  The industry is expected to continue to grow, crossing the $300
+billion mark by 2021.  GitHub, analysts say, could help Microsoft seize on that
+growth by drawing new developers to its cloud platform, Azure.

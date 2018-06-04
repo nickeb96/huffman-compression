@@ -1,0 +1,8 @@
+[package]
+name = "huffman"
+version = "0.1.0"
+authors = ["nickeb96 <nickboyle5496@gmail.com>"]
+
+[dependencies]
+indextree = "1.3"
+bit-vec = "0.5"
