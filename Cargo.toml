@@ -1,7 +1,7 @@
 [package]
-name = "huffman"
+name = "huffman-compression"
 version = "0.1.0"
-authors = ["nickeb96 <nickboyle5496@gmail.com>"]
+authors = ["nickeb96 <nickeb96@gmail.com>"]
 
 [dependencies]
 indextree = "1.3"

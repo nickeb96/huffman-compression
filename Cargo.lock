@@ -7,7 +7,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "4440d5cb623bb7390ae27fec0bb6c61111969860f8e3ae198bfa0663645e67cf"
 
 [[package]]
-name = "huffman"
+name = "huffman-compression"
 version = "0.1.0"
 dependencies = [
  "bit-vec",

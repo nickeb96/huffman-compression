@@ -1,5 +1,5 @@
 
-extern crate huffman;
+extern crate huffman_compression as huffman;
 
 use std::fs::File;
 use std::io::prelude::*;

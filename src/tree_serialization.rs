@@ -4,7 +4,6 @@ use indextree::{Arena, NodeId};
 use super::{Byte, Node};
 
 
-// TODO: rewrite
 pub fn serialize_tree(root: NodeId, arena: &Arena<Node>) -> Vec<u8> {
     let mut ret = Vec::new();
     let mut stack = vec![root];
@@ -33,7 +32,6 @@ pub fn serialize_tree(root: NodeId, arena: &Arena<Node>) -> Vec<u8> {
 }
 
 
-// TODO: rewrite
 pub fn deserialize_tree(bytes: &[u8]) -> (NodeId, Arena<Node>) {
     let mut arena = Arena::new();
     let root = arena.new_node(Node::Branch);

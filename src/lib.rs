@@ -48,15 +48,16 @@ impl PartialOrd for Tree {
     }
 }
 
-// Implement Ord for tree so that it is reversed to make MaxBinaryHeap a MinBinaryHeap
+// Implement Ord for Tree so that its order is reversed, to use BinaryHeap (a
+// max heap) as a minimum priority queue.
 impl Ord for Tree {
     fn cmp(&self, other: &Tree) -> std::cmp::Ordering {
-        other.weight.cmp(&self.weight)
+        other.weight.cmp(&self.weight) // reversed ordering
     }
 }
 
 
-// Returning large objects is okay because of RVO
+// Returning large objects is okay because of RVO.
 pub fn make_byte_weights(bytes: &[u8]) -> [usize; 256] {
     let mut ret = [0; 256];
     for &byte in bytes {
@@ -70,8 +71,8 @@ pub fn make_huffman_tree(weights: &[usize; 256]) -> (NodeId, Arena<Node>) {
     let mut arena = Arena::new();
     let mut queue = BinaryHeap::new();
 
-    // put bytes that show up in the file into the priority queue, ignore bytes
-    // that don't exist in the file
+    // Put bytes that show up in the file into the priority queue, ignore bytes
+    // that don't exist in the file.
     for (byte, &weight) in weights.iter().enumerate() {
         if weight > 0 {
             queue.push(Tree {
@@ -208,13 +209,17 @@ pub fn print_tree(root: NodeId, arena: &Arena<Node>) {
     let eof_char = '\u{2020}';
     let new_line_char = '\u{2424}';
     let visible_space_char = '\u{2423}';
+
     let spacing = |depth| (2isize.pow((max_depth - depth + 1) as u32) - 1) as usize;
     let indentation = |depth| (2isize.pow((max_depth - depth) as u32) - 1) as usize;
+
     let mut last_depth = -1isize;
     let mut queue = VecDeque::from(vec![(Some(root), 0)]);
 
     while let Some((maybe_node, depth)) = queue.pop_front() {
         if depth > max_depth {
+            // Since None is still being pushed when nodes have no chidlren,
+            // explicitly break out of the loop when max_depth is reached.
             break;
         } else if depth > last_depth {
             print!("\n{:width$}", "", width=indentation(depth));
@@ -231,15 +236,15 @@ pub fn print_tree(root: NodeId, arena: &Arena<Node>) {
                 Node::Leaf(Byte::EndOfFile) => eof_char,
             };
             print!("{}{:width$}", symbol, "", width=spacing(depth));
+            let mut child_iter = node.children(arena);
             // Huffman tree nodes are guaranteed to have either 2 children or 0
             // childern, never 1.
-            let mut child_iter = node.children(arena);
-            // Push children nodes, even if a node does not have any in order
-            // to maintain spacing.
             if let (Some(left), Some(right)) = (child_iter.next(), child_iter.next()) {
                 queue.push_back((Some(left), depth + 1));
                 queue.push_back((Some(right), depth + 1));
             } else {
+                // Even if a node does not have children, push None anyway
+                // in order to to maintain spacing.
                 queue.push_back((None, depth + 1));
                 queue.push_back((None, depth + 1));
             }
